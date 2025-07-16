@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../component/Layout/Layout";
 import { Link, useNavigate } from "react-router-dom";
 import routes from "../../Routes/Path";
+import ModalSection from "../../component/ModalSection/ModalSection";
 function Cart({
   cart,
   handleDec,
@@ -15,6 +16,8 @@ function Cart({
   discount,
 }) {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <div className="container mx-auto mt-10">
@@ -164,9 +167,10 @@ function Cart({
                 <span>Total cost</span>
                 <span>${totalPrice + 10}</span>
               </div>
-              <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
+              {/* <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
                 Checkout
-              </button>
+              </button> */}
+              <ModalSection />
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ function HeroSection() {
           />
         </div>
       </div>
-      <div className="absolute top-[30%] left-[50%]">
+      <div className="absolute top-[40%] left-[50%]">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-red-600 text-center">
           Discover Your Next Adventure
         </h1>

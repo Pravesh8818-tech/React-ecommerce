@@ -104,7 +104,7 @@ function App() {
           {/* <Route path="/" element={<Layout childeren={<Home />} />} />
           <Route path="/cart" element={<Layout childeren={<Cart />} />} />
           <Route path="/products" element={<AllProduct />} /> */}
-          <Route path={routes.home} element={<Home />} />
+          <Route path={routes.home} element={<Home AddToCart={addToCart} />} />
           <Route
             path={routes.cart}
             element={
