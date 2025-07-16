@@ -11,6 +11,7 @@ import {
 } from "flowbite-react";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export function ModalSection() {
   const [openModal, setOpenModal] = useState(false);
@@ -29,8 +30,29 @@ export function ModalSection() {
 
   function onCloseModal() {
     setOpenModal(false);
-    setEmail("");
+    setCheckOutData({
+      name: "",
+      email: "",
+      pincode: "",
+      mobile: "",
+    });
   }
+
+  const handleOrder = (e) => {
+    e.preventDefault();
+
+    if (
+      !checkOutData.name ||
+      !checkOutData.email ||
+      !checkOutData.pincode ||
+      !checkOutData.mobile
+    ) {
+      toast.error("All fields are required");
+    } else {
+      toast.success("Order placed successfully");
+      onCloseModal();
+    }
+  };
 
   return (
     <>
@@ -98,7 +120,12 @@ export function ModalSection() {
             </div>
 
             <div className="w-full">
-              <Button>CheckOut</Button>
+              <Button
+                className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
+                onClick={handleOrder}
+              >
+                CheckOut
+              </Button>
             </div>
           </div>
         </ModalBody>
